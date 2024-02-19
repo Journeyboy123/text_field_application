@@ -47,10 +47,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       // appBar: AppBar(),
       body: Column(children: [
-        Image.asset("images/Hotel.jpg",
-            fit: BoxFit.fill,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 2.5),
+        Stack(children: [
+          Image.asset("images/Hotel.jpg",
+              fit: BoxFit.fill,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 2.5),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Text(
+              "Corn Salad wit red beans",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white),
+            ),
+          )
+        ]),
         const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -62,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: Column(children: 
+            child: Column(children: [
               Icon(Icons.alarm_add),
               Text("5"),
               Text("Time"),
@@ -85,14 +97,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ]),
           ),
         ]),
-        Row(children: [
-          Text(
-            "Hotel Required",
-            style: TextStyle(fontSize: 25),
-          ),
-        ]),
-        Padding(
-          padding: const EdgeInsets.only(top: 11),
+        Text(
+          "Hotel Required",
+          style: TextStyle(fontSize: 25),
+        ),
+        Container(
+          color: Colors.grey,
+          padding: const EdgeInsets.symmetric(vertical: 5),
           child: Row(children: [
             Icon(Icons.add_circle, color: Colors.green),
             Text("Waiters"),
